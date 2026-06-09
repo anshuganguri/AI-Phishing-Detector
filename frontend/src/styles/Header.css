@@ -1,0 +1,118 @@
+/* src/styles/Header.css */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(10, 12, 16, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 2rem;
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  gap: 1rem;
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+}
+
+.logo-icon {
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, var(--accent-cyan), var(--accent-green));
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.logo-text {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.logo-text span {
+  color: var(--accent-cyan);
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.nav-tab {
+  padding: 0.4rem 1rem;
+  border-radius: var(--radius-md);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  cursor: pointer;
+  border: 1px solid transparent;
+  background: transparent;
+  transition: all var(--transition);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.nav-tab:hover {
+  color: var(--text-primary);
+  background: var(--bg-card);
+  border-color: var(--border);
+}
+
+.nav-tab.active {
+  color: var(--accent-cyan);
+  background: rgba(0, 212, 255, 0.08);
+  border-color: rgba(0, 212, 255, 0.25);
+}
+
+.header-status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.status-dot.online {
+  background: var(--safe-color);
+  box-shadow: 0 0 6px var(--safe-color);
+  animation: pulse-glow 2s infinite;
+}
+
+.status-dot.offline {
+  background: var(--phish-color);
+}
+
+@media (max-width: 640px) {
+  .header { padding: 0 1rem; }
+  .logo-text { display: none; }
+  .header-status .status-label { display: none; }
+  .nav-tab { padding: 0.4rem 0.6rem; font-size: 0.7rem; }
+}
